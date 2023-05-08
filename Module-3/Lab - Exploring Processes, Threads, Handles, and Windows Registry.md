@@ -52,3 +52,44 @@ In this part, you will explore threads and handles. Processes have one or more t
 
         Version, Build Time, Parent, User, VirusTotal and various tabs like Security, Enviroment, Strings, Image etc.
 * Click OK to continue
+
+### Step 2: Explore handles
+
+* In the Process Explorer, click View > select Lower Pane View > Handles to view the handles associated with the conhost.exe process.
+* Question: Examine the handles. What are the handles pointing to?
+
+![image](https://user-images.githubusercontent.com/33444140/236885402-61aca635-1a6f-4b49-9ddc-3863e913d89d.png)
+
+* Handles pointing to the processes that are running now.
+
+## Part 3: Exploring Windows Registry
+
+The Windows Registry is a hierarchical database that stores most of the operating systems and desktop environment configuration settings.
+
+* To access the Windows Registry, click Start > Search for regedit and select Registry Editor. Click Yes when asked to allow this app to make changes.
+
+![image](https://user-images.githubusercontent.com/33444140/236886169-493da585-9ba8-4ef6-8eab-74b68b7928a3.png)
+
+The Registry Editor has five hives. These hives are at the top level of the registry.
+* HKEY_CLASSES_ROOT is actually the Classes subkey of HKEY_LOCAL_MACHINE\Software. It stores information used by registered applications like file extension association, as well as a programmatic identifier (ProgID), Class ID (CLSID), and Interface ID (IID) data.
+* HKEY_CURRENT_USER contains the settings and configurations for the users who are currently logged in.
+* HKEY_LOCAL_MACHINE stores configuration information specific to the local computer.
+* HKEY_USERS contains the settings and configurations for all the users on the local computer. HKEY_CURRENT_USER is a subkey of HKEY_USERS.
+* HKEY_CURRENT_CONFIG stores the hardware information that is used at bootup by the local computer.
+
+* In a previous step, you had accepted the EULA for Process Explorer. Navigate to the EulaAccepted registry key for Process Explorer. Click to select Process Explorer in HKEY_CURRENT_USER > Software > Sysinternals > Process Explorer. Scroll down to locate the key EulaAccepted. Currently, the value for the registry key EulaAccepted is 0x00000001(1)
+
+![image](https://user-images.githubusercontent.com/33444140/236886962-7cb94806-cf2b-45c9-b043-16467acb1544.png)
+
+* Double-click EulaAccepted registry key. Currently the value data is set to 1. The value of 1 indicates that the EULA has been accepted by the user.
+
+* Change the 1 to 0 for Value data. The value of 0 indicates that the EULA was not accepted. Click OK to continue.
+
+![image](https://user-images.githubusercontent.com/33444140/236887262-dcc5bac4-0d24-4318-9321-c5b7348d975c.png)
+
+What is value for this registry key in the Data column?
+
+                The value changes to 0
+* Open the Process Explorer. Navigate to the folder where you have downloaded SysInternals. Open the folder SysInternalsSuite > Open procexp.exe.
+
+![image](https://user-images.githubusercontent.com/33444140/236887856-45ef5016-3181-4f3e-9f96-cf18905b1041.png)

@@ -89,7 +89,7 @@ The Registry Editor has five hives. These hives are at the top level of the regi
 
 What is value for this registry key in the Data column?
 
-                The value changes to 0
+        The value changes to 0
 * Open the Process Explorer. Navigate to the folder where you have downloaded SysInternals. Open the folder SysInternalsSuite > Open procexp.exe.
 
 ![image](https://user-images.githubusercontent.com/33444140/236887856-45ef5016-3181-4f3e-9f96-cf18905b1041.png)

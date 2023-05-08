@@ -23,3 +23,9 @@
     Created a local user account. It is a user account that is not linked to a Microsoft account and is specific to the computer where it was created.
 
 * Navigate to C:\Users folder. Right-click the User1 folder and select Properties, and then the Security tab.
+
+![image](https://user-images.githubusercontent.com/33444140/236892651-28f9da26-a5d5-4748-8b7d-8548d9133a65.png)
+
+* Open the folder that belongs to TOUSIF. Right-Click the folder and click Properties tab.
+
+![image](https://user-images.githubusercontent.com/33444140/236893157-800c48d7-6290-4c80-871a-c30e8bc76350.png)

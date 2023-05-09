@@ -55,3 +55,8 @@ Start. A window with a progress bar opens.
 
 * Click the Performance Monitor window. Click the Unfreeze Display icon to start the recording
 * Close all open windows you opened during Step 1 of this lab.
+
+## Part 2: Working in the Computer Management Utility
+
+The Computer Management is used to manage a local or remote computer. The tools in this utility are grouped into three categories: system tools, storage, and services and applications.
+

@@ -29,4 +29,43 @@ the users, such as web browsers and email clients, will also be listed here.
 
 * Close the command prompt window.
 * Click the Memory heading. Click the Memory heading a second time.
+* What effect does this have on the columns?
+          It shows Memory usage in Descending order and Ascending order.
 
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/50b47118-edbc-4a6e-b4ca-bf52b9cf787a)
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/4280858f-549f-424f-90d7-923bcb4c0dcb)
+
+* Right-click on the Memory heading, and then select Resource values > Memory > Percents.
+* What affect does this have on the Memory column?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/4d5d30d3-8c53-4c49-be4f-e208165969ba)
+
+This could be useful to see how much percentage of memory is the process using
+
+* In the Task Manager, click the Name heading.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7e7ba401-c0d7-46a2-8d4c-80bc31ab0efa)
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/de0b6d54-cd5b-4647-b549-3d0ef92cb83b)
+
+          It shows Name in Alphabetical order.
+
+* Double-click the Microsoft Edge.
+* Question: What happens?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/06996c3b-9864-4ae1-995f-ccbd175d8105)
+
+* Return to the Task Manager and right-click Microsoft Edge. Select End task.
+* Question: What happens to the web browser windows?
+
+          Microsoft Edge gets closed.
+
+## Part 2: Working in the Services tab
+
+* In the Task Manager window, click the Services tab. Use the scroll bar on the right side of the Services window to view all the services listed.
+* What statuses are listed?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/ab585f52-09d4-4b7a-8629-6c5cddbb7d43)
+
+## Part 3: Working in the Performance tab

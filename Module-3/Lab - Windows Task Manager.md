@@ -69,3 +69,31 @@ This could be useful to see how much percentage of memory is the process using
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/ab585f52-09d4-4b7a-8629-6c5cddbb7d43)
 
 ## Part 3: Working in the Performance tab
+
+* In the Task Manager window, click the Performance tab. 
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/22e2fd39-d256-474f-968f-12e15fd584ea)
+
+          9 threads are running
+
+* Click the Memory in the left panel of the Performance tab.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e98de992-5510-4b75-ba8f-39d477a3f969)
+
+          Total 8 GB physical memory
+          Total 1.5 GB Available physical memory
+          Total 6.3 physical memory is being used by the computer
+          
+* Click the Ethernet Chart in the left panel of the Performance tab.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/f0c09699-01c2-4e03-b5d1-8449e94d2b55)
+
+          As the ethernet is not active. It's not showing any data
+
+* Click Open Resource Monitor to open the Resource Monitor utility from the Performance tab in Task Manager
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/623adff8-b280-4e2e-b087-6c6811931e46)
+
+* Why is it important for an administrator to understand how to work within the Task Manager?
+
+>  * It is important for an administrator to understand the work within the Task Manager. The Task Manager provides real-time information about the system's performance, including CPU, memory, disk, and network usage. It also provides information about the application's resource consumption, which can help administrators identify potential issues and conflicts. It allows administrators to identify resource-heavy startup items and optimize the boot process, improving overall system performance and reducing startup time. It is particularly useful for managing remote desktop sessions or resolving user-related issues.

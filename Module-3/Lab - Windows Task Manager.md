@@ -16,5 +16,17 @@
 * The Apps are the applications that you have opened, such as Microsoft Edge, Task Manager, and Windows Command Processor, as shown in the figure above. Other applications that are opened by
 the users, such as web browsers and email clients, will also be listed here.
 * The Background processes are executed in the background by applications that are currently open.
-* The Windows processes are not shown in the figure. Scroll down to view them on y
+* The Windows processes are not shown in the figure. Scroll down to view them on your Windows PC. Windows processes are Microsoft Windows services that run in the background.
+* Some of the background processes or Windows processes may be associated with foreground processes. For example, if you open a command prompt window, the Console Window Host process will be started in the Windows process section, as shown below.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/ac0ec366-736e-449a-ada3-3e311e3f2cf3)
+
+* Right-click Console Window Host and select Properties.
+* Question: What is the location of this filename and location of this process?
+          C:\Windows\System32
+ 
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/559d2bdc-a970-4a80-81ef-a6e3936d362d)
+
+* Close the command prompt window.
+* Click the Memory heading. Click the Memory heading a second time.
 

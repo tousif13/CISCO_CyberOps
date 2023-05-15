@@ -60,3 +60,65 @@ Start. A window with a progress bar opens.
 
 The Computer Management is used to manage a local or remote computer. The tools in this utility are grouped into three categories: system tools, storage, and services and applications.
 
+* Click Control Panel > Administrative Tools. Select Computer Management. 
+* In the Computer Management window, expand the three categories by clicking on the arrow next to System Tools.
+* Click the arrow next to Event Viewer then click the arrow next to Windows Logs. Select System.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/f30a0a30-ebeb-4692-ac35-42f6a2340b0a)
+
+* The Event Properties window opens for the first event. Click the down arrow key to locate an event for Routing and Remote Access. You should find four events that describe the order for starting and stopping the Routing and Remote Access service.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d50bdd66-6d72-40d5-ad0d-ae66e70e1538)
+
+* Close all open windows.
+
+## Part 3: Configuring Administrative Tools
+
+For the rest of this lab, you will configure Advanced Administrative Tool features and monitor how this affects
+the computer.
+
+* Click Control Panel > Administrative Tools > Performance Monitor. The Performance Monitor window opens. Expand Data Collector Sets. Right-click User Defined, and select New > Data Collector Set
+* The Create new Data Collector Set window opens. In the Name field, type Memory Logs. Select the Create manually (Advanced) radio button, and click Next.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/ac5eeaae-e134-411e-acc2-e5d80a06338b)
+
+* In the What type of data do you want to include? window, check the Performance counter box then click Next.
+* In the Which performance counters would you like to log? window, click Add.
+* From the list of available counters, locate and expand Memory. Select Available MBytes and click Add>>
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/492a50df-343e-450e-8012-b55764cfa00a)
+
+* Set the Sample interval field to 4 seconds. Click Next
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/65c18e3d-a6b6-44d4-858d-7a3d072c46b6)
+
+* In the Where would you like the data to be saved? screen, click Browse.
+* In the Browse For Folder window , select your (C:) drive which is Local Disk (C:). Select PerfLogs and click OK.
+* The Where would you like the data to be saved? window opens with the directory information that you selected in the previous step. Click Next.
+* In the Create the data collector set? screen, click Finish.
+* Expand User Defined and select Memory Logs. Right-click Data Collector01and select Properties.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/98db0528-377a-4da5-a2b9-d890cfc56c72)
+
+* In the DataCollector01 Properties window, chhange the Log format: field to Comma Separated.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/b543ab93-764e-4af7-949e-b5bae1e26ae4)
+
+* Click the File tab.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/42244fc5-6b60-401d-88e6-25b4f874b351)
+
+* Click OK.
+
+* Select the Memory Logs icon in the left pane of the Performance Monitor window. Click the green arrow icon to start the data collection set. Notice a green arrow is placed on top of the Memory Logs icon.
+* Click the black square icon to stop the data collection set.
+* Click Start > Computer,and click drive C: > PerfLogs. Locate the folder that starts with your PC’s name followed by a timestamp, DESKTOP-NDFE14H_20170514-000001 in the example. Double-click the folder to open it, and then double-click the DataCollector01.csv file. If prompted, click Continue to permit access to the folder.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/2777415c-88e0-41c1-b7f6-91b2cfbad79a)
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/8d2f296b-11e8-49fe-ac90-a234a000de48)
+
+* Close the csv file and the window with the PerfLogs folder.
+* Select the Performance Monitor window. Right-click Memory Logs > Delete.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7dd78c4d-185b-4baf-9321-02fed9c7c49a)

@@ -157,3 +157,33 @@ its configuration file, which is located in /etc/nginx.
 
 * First, open nginx’s configuration file in a nano. The configuration file name used here is custom_server.conf. Notice below that the command is preceded by the sudo command. After typing
 nano include a space and the -l switch to turn on line-numbering. 
+
+`sudo nano -l /etc/nginx/custom_server.conf`
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/4158e9bd-d3da-455c-a6b1-840cf4248a23)
+
+* While the configuration file has many parameters, we will configure only two: the port nginx listens on for incoming connections, and the directory it will serve web pages from, including the index HTML homepage file.
+* Notice that at the bottom of the window, above the nano commands, the line number is highlighted and listed. On line 39, change the port number from `81 to 8080`. This will tell nginx to listen to HTTP requests on port `TCP 8080`.
+* Next, move to line 47 and change the path from `/usr/share/nginx/html/` to `/usr/share/nginx/html/text_ed_lab/`
+* Press CTRL+X to save the file. Press Y and then ENTER to confirm and use the custom_server.conf as the filename.
+* Type the command below to execute nginx using the modified configuration file:
+
+`sudo nginx -c custom_server.conf`
+
+* Click the web browser icon on the Dock to launch Firefox.
+* On the address bar, type 127.0.0.1:8080 to connect to a web server hosted on the local machine on port 8080. A page related to this lab should appear
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/32ee4e37-5de5-4589-8787-0982139060b3)
+
+* After successfully opening the nginx homepage, look at the connection message in the terminal window. What is the error message referring to?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/2ba0b5ee-fb09-4867-b8fb-4ec2a445dfc2)
+
+* To shut down the nginx webserver, press ENTER to get a command prompt and type the following
+command in the terminal window:
+
+`sudo pkill nginx`
+
+* You can test whether the nginx server is indeed shut down by first clearing the recent history in the web browser, then close and re-open the web browser, then go to the nginx homepage at 127.0.0.1:8080. Does the web page appear?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/bdfc330c-1a37-4044-aae3-caf2f3efd8c7)

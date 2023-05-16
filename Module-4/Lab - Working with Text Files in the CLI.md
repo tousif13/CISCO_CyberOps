@@ -60,6 +60,9 @@ CTRL+O saves the current file; CTRL+W opens the search menu. GNU nano uses a two
 * In the terminal window, type `nano space.txt` to open the text file created in Part 1.
 * nano will launch and automatically load the space.txt text file. While the text may seem to be truncated or incomplete, it is not. Because the text was created with no return characters and line wrapping is not enabled, by default, nano is displaying one long line of text.
 Use the Home and End keyboard keys to quickly navigate to the beginning and to the end of a line, respectively.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/a6ba3141-efef-4160-8a96-834e2c6a3e4c)
+
 * What character does nano use to represent that a line continues beyond the boundaries of the screen?
 
         $
@@ -69,3 +72,88 @@ Use the Home and End keyboard keys to quickly navigate to the beginning and to t
 Navigation in nano is very user friendly. Use the arrows to move around the files. Page Up and Page Down can also be used to skip forward or backwards entire pages. Spend some time with nano and its help screen. To enter the help screen, press CTRL+G. Press q to quit the help screen and return to
 document editing in nano.
 
+## Part 3: Working with Configuration Files
+
+### Step 1: Locating Configuration Files
+
+> The program author defines the location of configuration for a given program (service or application). Because
+of that, the documentation should be consulted when assessing the location of the configuration file.
+Conventionally however, in Linux, configuration files that are used to configure user applications are often
+placed in the user’s home directory while configuration files used to control system-wide services are placed
+in the /etc directory. Users always have permission to write to their own home directories and are able to
+configure the behavior of applications they use
+
+* Use the `ls` command to list all the files in the `analyst` home directory:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/186461c5-82b3-4ba9-bca8-5b551440bb3e)
+
+* While a few files are displayed, none of them seem to be configuration files. This is because it is convention to hide home-directory-hosted configuration files by preceding their names with a “.” (dot) character
+* Use the `ls` command again but this time add the `–a` option to also include hidden files in the output:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/517f84ad-df26-4db5-96f1-574d50a3453f)
+
+* Use cat command to display the contents of the .bashrc file. This file is used to configure user-specific terminal behavior and customization
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/971133ee-6d3c-469e-879d-425cfda8018b)
+
+> Do not worry too much about the syntax of .bashrc at this point. The important thing to notice is that
+.bashrc contains configuration for the terminal. For example, the line PS1='\[\e[1;32m\][\u@\h
+\W]\$\[\e[0m\] ' defines the prompt structure of the prompt displayed by the terminal:
+[username@hostname current_dir] followed by a dollar sign, all in green. A few other configurations
+include shortcuts to commands such as ls and vi. In this case, every time the user types ls, the shell
+automatically converts that to ls –color to display a color-coded output for ls (directories in blue, regular
+files in grey, executable files in green, etc.)
+
+> While configuration files related to user applications are conventionally placed under the user’s home
+directory, configuration files relating to system-wide services are place in the /etc directory, by
+convention. Web services, print services, ftp services, and email services are examples of services that
+affect the entire system and of which configuration files are stored under /etc. Notice that regular users do
+not have writing access to /etc. This is important as it restricts the ability to change the system-wide
+service configuration to the root user only.
+
+* Use the `ls` command to list the contents of the `/etc` directory:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/33f7c4d9-185d-49fd-9d51-05bffcc72cfc)
+
+* Use the `cat` command to display the contents of the `bash.bashrc` file:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/9c49ae64-31fd-43ff-9a2e-461e5c928270)
+
+> The syntax of bash.bashrc is out of scope of this course. This file defines the default behavior of the
+shell for all users. If a user wants to customize his/her own shell behavior, the default behavior can be
+overridden by editing the .bashrc file located in the user’s home directory. Because this is a system-wide
+configuration, the configuration file is placed under /etc, making it editable only by the root user.
+Therefore, the user will have to log in as root to modify bash.bashrc.
+
+### Step 2: Editing and Saving Configuration files
+
+Let’s edit .bashrc to change the color of the shell prompt from green to red for the analyst user.
+
+* First, open SciTE by selecting Applications > CyberOPS > SciTE from the tool bar located in the upper portion of the Cisco CyberOPS VM screen.
+* Select File > Open to launch SciTE’s Open File window.
+* Because .bashrc is a hidden file with no extension, SciTE does not display it in the file list. If the Location feature is not visible in the dialog box, Change the type of file shown by selecting All Files (*) from the type drop box, as shown below. All the files in the analyst’s home directory are shown.
+* Select .bashrc and click Open.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/20fdd84f-bb78-4834-8d83-f209f335da1b)
+
+* `Locate 32 and replace it with 31`. 32 is the color code for `green`, while `31 represents red`
+* Save the file by selecting File > Save and close SciTE by clicking the X icon.
+* Click the Terminal application icon located on the Dock, at the bottom center of the Cisco CyberOPS VM screen. The prompt should appear in red instead of green.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/4f6e1898-6136-4ae5-8a90-feafee785c7f)
+
+* The same change could have been made from the command line with a text editor such as nano. From a new terminal window, type nano .bashrc to launch nano and automatically load the .bashrc file in it:
+* Change 31 to 33. 33 is the color code to yellow.
+* Press CTRL+X to save and then press Y to confirm. The text editor nano will also offer you the chance to change the filename. Simply press ENTER to use the same name, .bashrc.
+* The text editor nano will end, and you will be back on the shell prompt. This time reload the bash terminal by entering the command bash in the terminal. The prompt should now appear in yellow instead of red.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/941591e8-1ada-4180-be3a-7431d29ffad3)
+
+### Step 3: Editing Configuration Files for Services
+
+> System-wide configuration files are not very different from the user-application files. nginx is a lightweight
+web server that is installed in the Cisco CyberOPS Workstation VM. nginx can be customized by changing
+its configuration file, which is located in /etc/nginx.
+
+* First, open nginx’s configuration file in a nano. The configuration file name used here is custom_server.conf. Notice below that the command is preceded by the sudo command. After typing
+nano include a space and the -l switch to turn on line-numbering. 

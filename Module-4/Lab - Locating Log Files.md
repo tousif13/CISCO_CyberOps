@@ -161,6 +161,9 @@ and rsyslog.
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/3b54889d-b652-465a-bc19-5dba3d7989ec)
 
-* Use the --since “<time range>” to specify the time range of which log entries should be displayed. The two commands below display all log entries generated in the last two hours and in the last day, respectively:
+* Use the `--since <time range>` to specify the time range of which log entries should be displayed. The two commands below display all log entries generated in the last two hours and in the last day, respectively:
 
-      
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/8b59322a-9eee-4d99-9694-10cd837f0658)
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/6f735d2c-7c32-477b-9bed-741d20316e82)
+

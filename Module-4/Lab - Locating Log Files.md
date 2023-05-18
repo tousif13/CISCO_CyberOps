@@ -153,4 +153,14 @@ and rsyslog.
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d5bfa02e-ab3f-4628-a0ad-b3b47ce6bf80)
 
+* To see entries related to the last boot, add the -1 to the command above. To see entries related to the two last boots, add the -2 option.      
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/666ba44f-e891-4322-b49a-f74a20a0b0ad)
+
+* Use the --list-boots option to list previous boots:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/3b54889d-b652-465a-bc19-5dba3d7989ec)
+
+* Use the --since “<time range>” to specify the time range of which log entries should be displayed. The two commands below display all log entries generated in the last two hours and in the last day, respectively:
+
       

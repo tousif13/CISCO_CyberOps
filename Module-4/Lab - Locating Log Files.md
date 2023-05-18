@@ -167,3 +167,14 @@ and rsyslog.
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/6f735d2c-7c32-477b-9bed-741d20316e82)
 
+* journalctl also allows for displaying log entries related to a specific service with the –u option. The command below displays logs entries related to nginx:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/6b9c8528-3543-4668-bc90-a354206bd45a)
+
+* Similar to `tail –f`, journalctl also supports real-time monitoring. Use the `–f` option to instruct journalctl to follow a specific log. Press Ctrl + C to exit.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/475d1e17-8f77-4afa-962c-3d1b19119f1d)
+
+* journalctl also supports mixing options to achieve the desired filter set. The command below monitors nginx system events in real time.
+    
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/adee81ee-1d28-41d1-ac24-dfc327562adb)

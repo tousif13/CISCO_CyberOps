@@ -34,3 +34,52 @@ pieces of software and therefore use several different files to log events. This
 /var/log/messages file.
 
 * Stored under /var/log, the messages file stores various system events. The connection of new USB drive, a network card becoming available, and too many missed root login attempts, are a few examples of events logged to the /var/log/messages file. Use the more command to display the contents of the /var/log/messages file. Unlike the cat command, more allows for a paced navigation through the file. Press ENTER to advance line-by-line or SPACE to advance an entire page. Press q or CTRL + C to abort and exit more.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/dff39aaf-51ff-48d6-bc51-0ba77d4c3c35)
+
+* Notice that the events listed above are very different from the web server events. Because the operating system itself is generating this log, all recorded events are in relation to the OS itself
+* If necessary, enter Ctrl + C to exit out of the previous command.
+
+## Part 2: Locating Log Files in Unknown Systems
+
+* The CyberOps Workstation VM includes nginx, a lightweight web server. This section will show how to find and display nginx logs using the CyberOps Workstation VM.
+* When working with new software, the first step is to look at the documentation. It provides important information about the software, including information about its log files. Use the man command to display the nginx manual page:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/796e1c3f-3068-4122-8362-de533a9f5d55)
+
+* Scroll down the page to locate the nginx logging section. The documentation makes it clear that nginx supports logging, with the location of its log files defined at compilation time.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/11597d37-f71d-49cf-b07e-3d9508d5cdf7)
+
+* The manual page also contains information on the files used by nginx. Scroll down further to display the nginx operating files under the Files section:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/9c6c2dd6-5296-4bf2-bc2b-b76d15a286d1)
+
+* The outputs above help you to conclude that nginx supports logging and that it can save to log files. The output also hints at the existence of a configuration file for nginx
+
+* Before looking for nginx files, use the ps and the grep commands to ensure nginx is running in the VM.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/632faf9a-b854-4b9f-acff-0c62db2b3f79)
+
+* The output above confirms that nginx is running. In addition, the output also displays the parameters used when nginx was started. nginx process ID is being stored in /run/nginx.pid and error messages are being redirected to the terminal. 
+* Because the location to the log files was not specified, the global nginx configuration file should be checked for the location of the log files.
+
+* By design, the CyberOps Workstation VM utilizes default locations and definitions as much as possible. Conventionally, the /var/log directory holds various log files for various applications and services while configuration files are stored under the /etc directory. While the nginx manual page did not provide an exact location for its log files, it not only confirmed that nginx supports logging but also hinted at the location of a configuration file. Because the log file locations can often be customized in configuration files, a logical next step is to use the ls command to look under /etc and look for a nginx configuration file:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e256743a-bff9-44af-b0f1-420fd0037b94)
+
+* Notice the nginx folder under /etc in the output above. Using ls again, we find a number of files, including one named nginx.conf.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/fa7caa4f-8ae3-443f-9e26-52638eab1fe1)
+
+* Use the `cat` command to list the contents of `/etc/nginx/nginx.conf`. You can also use more or less to view the file and nano or SciTE to edit it. These tools make it easier to navigate through long text files (only the output of cat is displayed below).
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/4cf81a1e-103e-40e4-bc68-d36dacf3679b)
+
+* A quick look at the configuration file reveals that it is an nginx configuration file. Because there is no direct mention to the location of nginx log files, it is very likely that nginx is using default values for it. Following the convention of storing log files under /var/log, use the ls command to list its contents:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/c580d120-18e9-4fc7-ba95-3d01a68d118d)
+
+* As shown above, the /var/log directory has a subdirectory named nginx. Use the ls command again to list the contents of /var/log/nginx.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7ac01801-c14b-48b2-b6c3-0e210534c6f7)

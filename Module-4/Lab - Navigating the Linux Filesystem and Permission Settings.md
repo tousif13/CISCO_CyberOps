@@ -40,3 +40,33 @@ mounted filesystem, it is also known as mounting point
 Workstation VM has two hard drives installed. The first one was recognized by the kernel as /dev/sda while
 the second was recognized as /dev/sdb. Before a block device can be mounted, it must have a mounting
 point.
+
+* Use the ls -l command to verify that the directory second_drive is in the analyst's home directory.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e27b737b-7849-47aa-ab66-a9fe6cd36fc9)
+
+* If the directory second_drive does not exist, use the `mkdir second_drive` command to create it.
+* Use `ls -l` again to list the contents of the newly created second_drive directory.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/46f93355-94a8-464c-87c7-880d0153413c)
+
+* The directory is empty
+* Use the mount command to mount `/dev/sdb1` on the newly created `second_drive` directory. The syntax of mount is: mount [options] <device to be mounted> <mounting point>
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7f2c7b55-6408-4334-bc4a-8ddd49dd8d23)
+
+* No output is provided means the mounting process was successful
+* Now that the `/dev/sdb1` has been mounted on `/home/analyst/second_drive`, use `ls -l` to list the contents of the directory again.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/8d9224c4-e361-4fc9-b676-ac6c8e78a4a8)
+
+* The directory is longer empty as we mounted files from `/dev/sdb1`
+*  Issue the mount command with no options again to display detailed information about the /dev/sdb1 partition. As before, use the grep command to display only the /dev/sdX filesystems:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/53e795ec-f3bf-4f4c-b5b2-f789edf67f39)
+
+* Unmounting filesystems is just as simple. Make sure you change the directory to something outside of the mounting point and use the umount command, as shown below:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/fe85972f-bf45-4896-80d0-c4d04ca00d85)
+
+## Part 2: File Permissions

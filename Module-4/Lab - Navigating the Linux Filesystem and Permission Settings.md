@@ -70,3 +70,55 @@ point.
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/fe85972f-bf45-4896-80d0-c4d04ca00d85)
 
 ## Part 2: File Permissions
+
+> Linux filesystems have built-in features to control the ability of the users to view, change, navigate, and
+execute the contents of the filesystem. Essentially, each file in filesystems carries its own set of permissions,
+always carrying a set of definitions about what users and groups can do with the file.
+
+### Step 1: Visualize and Change the File Permissions.
+
+* Navigate to /home/analyst/lab.support.files/scripts/
+* Use the ls -l command to display file permissions.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/ca3aac7a-ff68-4ccd-a8fc-6c756fb4abf0)
+  
+* The permissions for cyops.mn are –rw-r--r--. What does that mean?
+  
+      That it has read and write permissions for user and only read permission for group and world users.
+* The touch command is very simple and useful. It allows for the quick creation of an empty text file. Use the command below to create an empty file in the /mnt directory:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/be65e1b2-baef-4b4c-a930-cb3b71c71013)
+
+* Why was the file not created? List the permissions, ownership and content of the /mnt directory and explain what happened. With the addition of -d option, it lists the permission of the parent directory. Record the answer in the lines below.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/fe477a62-0330-460d-8e46-172af5df363c)
+
+* What can be done for the touch command shown above to be successful?
+  
+        Giving the directory write permission will be done for the touch command.
+  
+* The chmod command is used to change the permissions of a file or directory. As before, mount the /dev/sdb1 partition on the /home/analyst/second_drive directory created earlier in this lab
+* Change to the second_drive directory and list the contents of it:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/9afa2ed2-f031-487b-a9db-17105b4f2b3f)
+
+* Use the `chmod` command to change the permissions of `myFile.txt`
+  
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/55ce9990-bd82-4d99-a982-bb1f35b38da9)
+
+* The chmod command takes permissions in the octal format. In that way, a breakdown of the 665 is as follows:
+  
+  6 in octal is 110 in binary. Assuming each position of the permissions of a file can be 1 or 0, 110 means rw- (read=1, write=1 and execute=0).
+
+  Therefore, the `chmod 665 myFile.txt` command changes the permissions to:
+
+  `Owner`: rw- (6 in octal or 110 in binary)
+
+  `Group`: rw- (6 in octal or 110 in binary)
+
+  `Other`: r-x (5 in octal or 101 in binary)
+  
+* What command would change the permissions of myFile.txt to rwxrwxrwx, granting any user in the
+system full access to the file?
+
+        chmod 777 myFile.txt

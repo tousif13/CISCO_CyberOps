@@ -149,3 +149,8 @@ and rsyslog.
 
 * This message reminds you that, because analyst is a regular user and not a member of either the adm, systemd-journal or wheel groups, not all log entries will be displayed by journalctl. It also states that running journalctl with the –q option suppresses the hint message.
 
+* journalctl includes options to help in filtering the output. Use the –b option to display boot-related log entries:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d5bfa02e-ab3f-4628-a0ad-b3b47ce6bf80)
+
+      

@@ -122,3 +122,61 @@ always carrying a set of definitions about what users and groups can do with the
 system full access to the file?
 
         chmod 777 myFile.txt
+* The `chown` command is used to change ownership of a file or directory. Issue the command below to make root the owner of the myFile.txt:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/58cdbe4a-d43a-48e8-8a64-5b326a7f18b7)
+
+### Step 2: Directory and Permissions
+
+> Similar to regular files, directories also carry permissions. Both files and directories have 9 bits for the
+permissions of the owner/user, the group, and others. There are also three more bits for special permissions:
+setuid, setgid, and sticky which is beyond the scope of this lab.
+
+* Change back to the `/home/analyst/lab.support.files` directory and issue the `ls -l` command to list all the files with details:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/b81533fc-9eb4-473c-a775-e2d89aa5885f)
+
+* Compare the permissions of the malware directory with the mininet_services file. What is the difference between beginning part of the malware line and the mininet_services line?
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/90e81a43-b439-425c-b908-259ee4a78059)
+
+> The letter ‘d’ at the beginning of the line indicates that the file type is a directory and not a file. Another
+difference between file and directory permissions is the execution bit. If a file has its execution bit turned
+on, it means it can be executed by the system. Directories are different than files with the execution bit set
+(a file with the execution bit set is an executable script or program). A directory with the execution bit set
+specifies whether a user can enter that directory
+  
+## Part 3: Symbolic Links and other Special File Types
+
+### Step 1: Examine file types
+  
+* Use the ls -l command to display the files in the /home/analyst folder. Notice the first characters of each line are either a “–“ indicating a file or a “d” indicating a directory.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/81db3a39-a9cc-45cd-8cb4-f109ab285e22)
+
+* Produce a listing of the /dev directory. Scroll to the middle of the output and notice how the block files begin with a “b”, the character device files begin with a “c” and the symbolic link files begin with an “l”:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/c234c2be-4ce0-4391-bec5-7c7678f2d1df)
+
+* Symbolic links in Linux are like shortcuts in Windows. There are two types of links in Linux: symbolic links and hard links. The difference between symbolic links and a hard links is that a symbolic link file points to the filename of another file and a hard link file points to the contents of another file. Create two files by using echo:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d7c80b8c-1fc0-4db9-a09d-8ab2960956a7)
+
+* Use `ln –s` to create a symbolic link to `file1.txt`, and `ln` to create a hard link to `file2.txt`:
+* Use the ls –l command and examine the directory listing:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/10efe0fb-bd2b-473b-85e4-04fcc73afe01)
+
+> Notice how the file file1symbolic is a symbolic link with an l at the beginning of the line and a pointer ->
+to file1.txt. The file2hard appears to be a regular file, because in fact it is a regular file that happens to
+point to the same inode on the hard disk drive as file2.txt. In other words, file2hard points to the same
+attributes and disk block location as file2.txt. The number 2 in the fifth column of the listing for file2hard
+and file2.txt indicates that there are 2 files hard linked to the same inode. For a directory listing the fifth
+column indicates the number of directories within the directory including hidden folders.
+  
+* Change the names of the original files: file1.txt and file2.txt, and notice how it effects the linked files
+  
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d0600610-0ff3-4dc9-b183-809fa3dc92c0)
+
+* Notice how file1symbolic is now a broken symbolic link because the name of the file that it pointed to file1.txt has changed, but the hard link file file2hard still works correctly because it points to the inode of file2.txt and not its name, which is now file2new.txt.
+

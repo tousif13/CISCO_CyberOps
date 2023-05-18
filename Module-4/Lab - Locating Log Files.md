@@ -83,3 +83,69 @@ pieces of software and therefore use several different files to log events. This
 * As shown above, the /var/log directory has a subdirectory named nginx. Use the ls command again to list the contents of /var/log/nginx.
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7ac01801-c14b-48b2-b6c3-0e210534c6f7)
+
+* These are very likely to be the log files in use by nginx. Move on to the next section to monitor these files and get confirmation that they are indeed nginx log files.
+
+## Part 3: Monitoring Log Files in Real Time
+
+> As seen in the previous sections, log files can be displayed with many text-presentation tools. While cat,
+more, less, and nano can be used to work with log files, they are not suitable for log file real-time monitoring.
+Developers designed various tools that allow for log file real-time monitoring. Some tools are text-based while
+others have a graphical interface. This lab focuses on tail, a simple but efficient tool, available in practically
+every Unix-based system.
+
+> The CyberOps Workstation VM uses a log rotating system to ensure that older logs are archived. By the time
+this lab gets used in class, some time will have passed and the log files will likely have been rotated. The
+result is that some log files, including the access.log file, could appear empty. To work around this problem
+and create some entries in access.log, simply open Firefox in the VM, point it to 127.0.0.1 and reload the
+page a few times.
+
+### Step 1: Using the tail command
+
+* The tail command displays the end of a text file. By default, tail will display the last ten (10) lines of a text file
+* Use the `tail` command to display the end of the `/etc/nginx/nginx.conf`.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/1135f3f2-ab21-4a62-add5-5d14a6f61eb1)
+
+*  Use the –n option to specify how many lines from the end of a file, tail should display
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d7cdca01-7ac2-4678-9ef0-257870b0699f)
+
+* You can use the tail command with the -f option to monitor the nginx access.log in real-time. Short for follow, -f tells tail to continuously display the end of a given text file. In a terminal window, issue tail with the –f option:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/71c0cb39-dafe-4c22-9ca3-1508fcf6244e)
+
+* As before, tail displays the last 10 lines of the file. However, notice that tail does not exit after displaying the lines; the command prompt is not visible, indicating that tail is still running.
+* With tail still running on the terminal window, click the web browser icon on the Dock to open a web browser window. Re-size the web browser window in a way that it allows you to see the bottom of the terminal window where tail is still running.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/dbc79838-6663-4e8b-91e7-16fb1d8d1c94)
+
+*  In the web browser address bar, enter 127.0.0.1 and press Enter. This is the address of the VM itself, which tells the browser to connect to a web server running on the local computer. A new entry should be recorded in the /var/log/nginx/access.log file. Refresh the webpage to see new entries added to the log
+* Because tail is still running, it should display the new entry at the bottom of the terminal window. Aside from the timestamp, your entry should look like the one above.
+* Because the log file is being updated by nginx, we can state with certainty that /var/log/acess.log is in fact the log file in use by nginx.
+* Enter Ctrl + C to end the tail monitoring session.
+
+### Step 2: BONUS TOOL: Journalctl
+
+> An init system is a set of rules and conventions governing the way the user space in a given Linux system is
+created and made available to the user. Init systems also specify system-wide parameters such as global
+configuration files, logging structure and service management.
+Systemd is a modern init system designed to unify Linux configuration and service behavior across all Linux
+distributions and has been increasingly adopted by major Linux distributions. Arch Linux relies on systemd for
+init functionality. The CyberOps Workstation VM also uses systemd.
+system-journald (or simply journald) is systemd’s event logging service and uses append-only binary files
+serving as its log files. Notice that journald does not impede the use of other logging systems, such as syslog
+and rsyslog.
+
+* In a terminal window in the CyberOps Workstation VM, issue the journalctl command with no options to display all journal log entries (it can be quite long):
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/24676a72-0da7-4f31-91b1-d1e1667f81ce)
+
+* The output begins with a line similar to the one below, marking the timestamp where the system started logging. Notice that the timestamps will vary from system to system.
+
+            -- Logs begin at Tue 2018-03-20 16:10:08 EDT, end at Thu 2023-05-18 01:43:41 EDT. --
+
+* journalctl includes a number of functionalities such as page scrolling, color-coded messages and more. Use the keyboard up/down arrow keys to scroll up/down the output, one line at a time. Use the left/right keyboard arrow keys to scroll sideways and display log entries that span beyond the boundaries of the terminal window. The <ENTER> key displays the next line while the space bar displays the next page in the output. Press the q key to exit journalctl.
+
+* This message reminds you that, because analyst is a regular user and not a member of either the adm, systemd-journal or wheel groups, not all log entries will be displayed by journalctl. It also states that running journalctl with the –q option suppresses the hint message.
+

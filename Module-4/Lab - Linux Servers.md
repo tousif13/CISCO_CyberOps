@@ -60,4 +60,61 @@ are running on a given computer. In Linux, running programs are also called proc
 * The fifth column displays the state of the connection.
 * The sixth column displays the process ID (PID) of the process responsible for the connection. It also displays a short name associated to the process.
 
-* Sometimes it is useful to cross the information provided by netstat with ps. Based on the output of item (d), it is known that a process with PID 395 is bound to TCP port 80. Port 395 is used in this example. Use ps and grep to list all lines of the ps output that contain PID 395. Replace 395 with the PID number for your particular running instance of nginx:
+* Sometimes it is useful to cross the information provided by `netstat` with `ps`. Based on the output of item (d), it is known that a process with `PID 395` is bound to `TCP port 80`. Port 395 is used in this example. Use ps and grep to list all lines of the ps output that contain PID 395. Replace 395 with the PID number for your particular running instance of nginx:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/94cd8f41-c311-48bc-b0c0-181ce60f4994)
+
+* In the output above, the ps command is piped through the grep command to filter for only the lines containing the number 395. The result is three lines with text wrapping.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/677c8dce-44df-4bda-81ae-4b4cb3d7571b)
+
+* The process PID 542 is nginx. How could that be concluded from the output above?
+* What is nginx? What is its function?
+
+> Nginx (pronounced "engine-x") is a popular open-source web server and reverse proxy server. Originally developed to address the C10k problem (handling 10,000 concurrent connections), Nginx has gained widespread adoption due to its high performance, scalability, and versatility. Some of its functions are Web Server, Reverse Proxy Server, Load Balancer, Caching, SSL/TLS Termination, HTTP/2 and WebSocket Support, Reverse Proxy for Microservices etc.
+
+## Part 2: Using Telnet to Test TCP Services
+
+> Telnet is a simple remote shell application. Telnet is considered insecure because it does not provide
+encryption. Administrators who choose to use Telnet to remotely manage network devices and servers will
+expose login credentials to that server, as Telnet will transmit session data in clear text. While Telnet is not
+recommended as a remote shell application, it can be very useful for quickly testing or gathering information
+about TCP services.
+
+> The Telnet protocol operates on port 23 using TCP by default. The telnet client however, allows for a different
+port to be specified. By changing the port and connecting to a server, the telnet client allows for a network
+analyst to quickly assess the nature of a specific server by communicating directly to it.
+
+* In Part 1, nginx was found to be running and assigned to port 80 TCP. Although a quick internet search revealed that nginx is a lightweight web server, how would an analyst be sure of that? What if an attacker changed the name of a malware program to nginx, just to make it look like the popular webserver? Use telnet to connect to the local host on port 80 TCP:
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/1a7be128-065b-49c0-ae0b-9169a7264346)
+
+* Press a few letters on the keyboard. Any key will work. After a few keys are pressed, press ENTER. Below is the full output, including the Telnet connection establishment and the random keys pressed (12345, this case):
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/aca42fae-7b3b-4723-9803-6fa0fdc0e928)
+
+> Thanks to the Telnet protocol, a clear text TCP connection was established, by the Telnet client, directly
+to the nginx server, listening on 127.0.0.1 port 80 TCP. This connection allows us to send data directly to
+the server. Because nginx is a web server, it does not understand the sequence of random letters sent to
+it and returns an error in the format of a web page.
+
+* Looking at the netstat output presented earlier, it is possible to see a process attached to `port 22`. Use `Telnet` to connect to it.
+* Port 22 TCP is assigned to SSH service. SSH allows an administrator to connect to a remote computer securely.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/b529cc90-ebde-4b55-ab15-1b6956ba396d)
+
+* Use Telnet to connect to port 68. What happens? Explain.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/cd368168-a816-4555-bd80-173c92b8354e)
+
+* Port 68 is actually used by the Bootstrap Protocol (BOOTP) server, not the client. Telnet, on the other hand, is a protocol used for remote terminal access and does not use port 68 or BOOTP. Telnet traditionally uses port 23 for communication. It establishes a connection to a remote host's Telnet server on port 23, allowing interactive access to that system's command line.
+
+## Reflection Questions
+
+* What are the advantages of using netstat?
+
+        Netstat provides real-time insights into network connections, open ports, and network statistics, allowing you to monitor network activity, troubleshoot connectivity issues, identify unauthorized connections, and analyze network performance. With its ability to display connection details, port statuses, associated processes, and protocol-specific information, netstat empowers administrators to effectively manage and secure their network infrastructure across different platforms.
+        
+* What are the advantages of using Telnet? Is it safe?
+
+        Telnet allows remote access to a device's command-line interface, providing advantages such as easy remote management, troubleshooting, and configuration of network devices. However, Telnet is considered insecure because it transmits data, including passwords, in plaintext, making it vulnerable to eavesdropping and unauthorized access. It is recommended to use more secure alternatives like SSH (Secure Shell) for remote access to ensure the confidentiality and integrity of transmitted data.

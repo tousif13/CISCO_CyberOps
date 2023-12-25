@@ -34,3 +34,24 @@
 * Let's see through the NIDS alerts window as it involves SSL certificate validation failures.
 
 ## NIDS alerts
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/d1c466e2-7e37-46d1-a7f2-833565c579cb)
+
+* We got 45 NIDS alerts in this period of time and the classification is given such as `misc-activity`, `policy-validation`, `trojan-activity` etc.
+* Let's see the NIDS alerts.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/c1f7615b-d9db-42f4-8644-fa7f8453271a)
+
+* There are some alerts like first three which depicts about HTTP connection is made by which an executable is downloaded which is a `.dll` file.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/c5249047-d471-4be5-bad3-d13592c549d2)
+
+* As shown above, a dll file called `IE7MnYfF4c.dll` is attached.
+* Extract the file either through `Wireshark` or `NetworkMiner`. Using NetworkMiner in this case.
+
+![dll](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/5acbab76-5bd5-4e73-8bbb-0e9e9548d9e1)
+
+* Uploading and checking the dll file in `VirusTotal`.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/1dd316dd-0cc6-407f-bfd7-0e4b67c7eab7)
+

@@ -55,3 +55,4 @@
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/1dd316dd-0cc6-407f-bfd7-0e4b67c7eab7)
 
+As guessed already, it is indeed a malicious dll file which got flagged by 57 out of 71.

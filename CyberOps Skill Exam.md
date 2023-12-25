@@ -56,3 +56,35 @@
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/1dd316dd-0cc6-407f-bfd7-0e4b67c7eab7)
 
 * As guessed already, it is indeed a malicious dll file which got flagged by 57 out of 71.
+* Next, going through the trojan abuse logs which detected a trojan activity.
+
+## Trojan Abuse
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/2b10de74-798f-40f7-a46f-d0692655690f)
+
+* 8 Trojan abuse alerts which detected as `Dridex/Trickbot CnC`.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/7bba5d7d-7e56-404c-9b96-81394625e009)
+
+* All trojan activity performed at only one destination IP address which is `10.12.3.66`.
+* There are 3 source ip addresses which the trojan activity is performed.
+  
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/9427c81c-e978-4778-a1c2-400cd89d5f09)
+
+* First one is from Russia.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/9c66941a-0636-4dd3-88e4-feb1d5360353)
+
+* Another one is from France.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/b9acf350-4b13-482c-981f-5e7f08720b3d)
+
+* Last one is from United States.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/6dafc113-d173-475e-8088-b9e8fb36c317)
+
+* We can see the alerts of the trojan activity where its source port is either 8080 or 443.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/84197265-d8e8-4368-985f-635dd5291304)
+
+* The sites involved in this are `gamaes.shop` and `newsaarctech.com`

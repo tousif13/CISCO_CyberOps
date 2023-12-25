@@ -15,3 +15,5 @@
 
 * After updating the time range, we can see 4,316 logs appeared in the given range of time.
 
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e05d55b6-2e34-482e-b26d-b4eb487dce40)
+

@@ -17,6 +17,8 @@
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e05d55b6-2e34-482e-b26d-b4eb487dce40)
 
+## Zeek Notices
+
 * Let's see the Zeek notices window first.
 * We got 7 Zeek notices as shown below.
 
@@ -27,3 +29,8 @@
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/78701a66-7743-486d-b2f9-7b67055a359f)
 
+* Malware Hash Registry Detection rate is of 24%.
+* Thus, we're dealing with a malware infiltrate which lead to failure of SSL certification validation.
+* Let's see through the NIDS alerts window as it involves SSL certificate validation failures.
+
+## NIDS alerts

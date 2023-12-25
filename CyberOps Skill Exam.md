@@ -17,3 +17,13 @@
 
 ![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/e05d55b6-2e34-482e-b26d-b4eb487dce40)
 
+* Let's see the Zeek notices window first.
+* We got 7 Zeek notices as shown below.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/607d5e73-3a3d-4993-b31f-a584f190f436)
+
+* Zeek notified about SSL Invalid server certificate and a signature match of `TeamCymruMalwareHashRegistry`.
+* In Zeek Message/Sub-message, we can see a detailed inspection of Zeek notices.
+
+![image](https://github.com/tousif13/CISCO_CyberOps/assets/33444140/78701a66-7743-486d-b2f9-7b67055a359f)
+
